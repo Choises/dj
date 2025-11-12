@@ -1,0 +1,221 @@
+<html lang="it"><head><center><style>
+    body {
+      margin: 0;
+      display:  flex;
+      justify-content:  center;
+      align-items:  center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    .tv-setup {
+       display:  flex;
+      justify-content:  center;
+      align-items:  center;
+      gap: 10px;
+    }
+    .side-video video {
+      width: 97%px;   
+      height: 100%px;
+      object-fit: cover; 
+      background-color: black;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      animation: rainbowBorder 5s linear infinite;
+    }
+    .side-video video {
+      width: 97%;
+      height: 350px;
+      object-fit: cover;
+      background-color: black;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      animation: rainbowBorder 5s linear infinite;
+    }
+    .tv-body {
+      width: 350px;
+    background: #000001;
+    }
+    .tv-screen {
+      width: 97%;
+      height: 250px;
+      background: #000;
+      border: 4px solid transparent;
+      border-radius: 10px;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+      position: relative;
+      animation: rainbowBorder 5s linear infinite;
+    }
+    .tv-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    #album-art {
+      z-index: 3;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      background: no-repeat center center;
+      background-size: cover;
+      border-radius: 10px;
+      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.5);
+      animation: rainbowBorder 5s linear infinite, zoomEffect 3s ease-in-out infinite;
+    }
+    @keyframes zoomEffect {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      height: 28px;
+      margin: 10px 0;
+    }
+    .choices {
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      z-index: 20;
+      animation: rainbow 5s linear infinite;
+    }
+    #title-container {
+      flex-grow: 1;
+      height: 28px;
+      line-height: 28px;
+      margin: 0 10px;
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    #title-container span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 15s linear infinite, rainbow 5s linear infinite;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 400% 50%; }
+    }
+    @keyframes rainbowBorder {
+      0% { border-color: red; box-shadow: 0 0 15px red; }
+      14% { border-color: orange; box-shadow: 0 0 15px orange; }
+      28% { border-color: yellow; box-shadow: 0 0 15px yellow; }
+      42% { border-color: green; box-shadow: 0 0 15px green; }
+      57% { border-color: blue; box-shadow: 0 0 15px blue; }
+      71% { border-color: indigo; box-shadow: 0 0 15px indigo; }
+      85% { border-color: violet; box-shadow: 0 0 15px violet; }
+      100% { border-color: red; box-shadow: 0 0 15px red; }
+    }
+    .tv-stand {
+      width: 120px;
+      height: 25px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      margin-top: 10px;
+      border-radius: 12px;
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 6px 10px #000;
+      color: white;
+      text-align: center;
+      line-height: 25px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      animation: rainbow 5s linear infinite;
+    }
+    .tv-base {
+      width: 180px;
+      height: 12px;
+      background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      margin: 5px auto;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.5), 0 3px 8px #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rainbow 5s linear infinite;
+    }
+    .tv-base input[type="range"] {
+      width: 90%;
+      height: 6px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      -webkit-appearance: none;
+      border-radius: 6px;
+      animation: rainbow 5s linear infinite;
+    }
+    .tv-base input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400%;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: rainbow 5s linear infinite;
+    }
+  </style>
+
+
+  <div class="tv-setup">
+    <div class="side-video">
+      <video src="https://i.imgur.com/NvocSPt.mp4" autoplay loop muted></video>
+    </div>
+
+    <div class="tv-body">
+      <div class="tv-screen">
+        <video id="mainVideo" src="https://i.imgur.com/qfktkXn.mp4" autoplay muted loop></video>
+        <div id="album-art"></div>
+      </div>
+
+      <div class="bottom-bar">
+        <div class="choices"></div>
+        <div id="title-container"><span id="scrollText">Loading title...</span></div>
+        <div class="choices"></div>
+      </div>
+
+      <div class="tv-stand" id="playButton">PLAY</div>
+      <div class="tv-base">
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" />
+      </div>
+    </div>
+
+    <div class="side-video">
+      <video src="https://i.imgur.com/NvocSPt.mp4" autoplay loop muted></video>
+    </div>
+  </div>
+
+  <audio id="radioStream" src="https://stream.rcast.net/68606" preload="auto" playsinline></audio>
+
+ <script>
+  const _0xa20545=_0x5ba8;(function(_0x52ed76,_0x230b39){const _0x233c65=_0x5ba8,_0x24227e=_0x52ed76();while(!![]){try{const _0x4a023d=-parseInt(_0x233c65(0x106))/0x1*(parseInt(_0x233c65(0xf7))/0x2)+parseInt(_0x233c65(0x11d))/0x3+parseInt(_0x233c65(0x11b))/0x4+parseInt(_0x233c65(0x109))/0x5*(parseInt(_0x233c65(0x10f))/0x6)+parseInt(_0x233c65(0x117))/0x7+-parseInt(_0x233c65(0x10e))/0x8*(-parseInt(_0x233c65(0xff))/0x9)+-parseInt(_0x233c65(0x114))/0xa*(parseInt(_0x233c65(0x116))/0xb);if(_0x4a023d===_0x230b39)break;else _0x24227e['push'](_0x24227e['shift']());}catch(_0xb787a5){_0x24227e['push'](_0x24227e['shift']());}}}(_0x2816,0xa2a70));function _0x2816(){const _0x246f25=['input','761532kDyaTr','click','2091156QzdiFx','pause','block','https://itunes.apple.com/search?term=','334UCcXAt','display','Title\x20not\x20available','json','paused','PLAY','none','100x100','19755rwOmZW','style','getElementById','replace','600x600','playButton','textContent','5119MRollN','Error\x20in\x20recovery\x20title:','url(','10yMWaED','scrollText','https://zenoplay.zenomedia.com/api/zenofm/nowplaying/fws448y0sxhvv','album-art','artworkUrl100','4664ufRvbc','3202980ixtHgl','length','','addEventListener','STOP','26870XspKbh','log','9427PBntqF','4123532tajoRX','value','results'];_0x2816=function(){return _0x246f25;};return _0x2816();}const playButton=document['getElementById'](_0xa20545(0x104)),volumeSlider=document['getElementById']('volumeSlider'),radioStream=document[_0xa20545(0x101)]('radioStream'),scrollText=document[_0xa20545(0x101)](_0xa20545(0x10a)),albumArt=document[_0xa20545(0x101)](_0xa20545(0x10c)),mainVideo=document['getElementById']('mainVideo'),From=document['getElementById'](_0xa20545(0x111));playButton[_0xa20545(0x112)](_0xa20545(0x11c),()=>{const _0x39ef3d=_0xa20545;radioStream[_0x39ef3d(0xfb)]?(radioStream['play'](),playButton[_0x39ef3d(0x105)]=_0x39ef3d(0x113)):(radioStream[_0x39ef3d(0x11e)](),playButton[_0x39ef3d(0x105)]=_0x39ef3d(0xfc));}),volumeSlider[_0xa20545(0x112)](_0xa20545(0x11a),()=>{const _0x244d8a=_0xa20545;radioStream['volume']=volumeSlider[_0x244d8a(0x118)];});function _0x5ba8(_0x157ba4,_0x15f0cc){const _0x281653=_0x2816();return _0x5ba8=function(_0x5ba807,_0x24ce3a){_0x5ba807=_0x5ba807-0xf5;let _0x1610f7=_0x281653[_0x5ba807];return _0x1610f7;},_0x5ba8(_0x157ba4,_0x15f0cc);}async function fetchNowPlaying(){const _0x1c4e1b=_0xa20545;try{const _0x111d24=await fetch(_0x1c4e1b(0x10b)),_0x2ac1f8=await _0x111d24[_0x1c4e1b(0xfa)](),_0x405d00=_0x2ac1f8['title']||_0x1c4e1b(0xf9);scrollText[_0x1c4e1b(0x105)]=_0x405d00;const _0x2d5c78=await fetch(_0x1c4e1b(0xf6)+encodeURIComponent(_0x405d00)+'&limit=1&entity=song'),_0x237884=await _0x2d5c78[_0x1c4e1b(0xfa)]();if(_0x237884[_0x1c4e1b(0x119)]&&_0x237884[_0x1c4e1b(0x119)][_0x1c4e1b(0x110)]>0x0){const _0x5bf784=_0x237884[_0x1c4e1b(0x119)][0x0][_0x1c4e1b(0x10d)][_0x1c4e1b(0x102)](_0x1c4e1b(0xfe),_0x1c4e1b(0x103));albumArt[_0x1c4e1b(0x100)]['backgroundImage']=_0x1c4e1b(0x108)+_0x5bf784+')',albumArt['style'][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xf5),mainVideo['style'][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xfd);}else albumArt['style'][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xfd),mainVideo['style'][_0x1c4e1b(0xf8)]='block';}catch(_0x401b91){console[_0x1c4e1b(0x115)](_0x1c4e1b(0x107),_0x401b91),scrollText[_0x1c4e1b(0x105)]='Title\x20not\x20available',From[_0x1c4e1b(0x100)][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xf5),albumArt[_0x1c4e1b(0x100)][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xfd),mainVideo[_0x1c4e1b(0x100)][_0x1c4e1b(0xf8)]=_0x1c4e1b(0xf5);}}fetchNowPlaying(),setInterval(fetchNowPlaying,0x3a98);
+</script></center>
+</body></html>
